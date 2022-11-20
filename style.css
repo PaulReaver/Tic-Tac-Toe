@@ -9,6 +9,7 @@ body {
 }
 
 .title {
+    cursor: default;
     color: #f6f4f1;
     font-family: "Permanent Marker", cursive;
     font-size: 3rem;
@@ -24,6 +25,7 @@ body {
 }
 
 .cell {
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
