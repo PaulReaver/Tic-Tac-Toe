@@ -3,3 +3,59 @@
     margin: 0;
     padding: 0;
 }
+
+body {
+    background-color: #004225
+}
+
+.title {
+    color: #f6f4f1;
+    font-family: "Permanent Marker", cursive;
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.container {
+    margin-top: 3rem;
+    display: grid;
+    grid-template-columns: repeat(3, 200px);
+    justify-content: center;
+}
+
+.cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Permanent Marker", cursive;
+    font-weight: bold;
+    font-size: 10rem;
+    color: #f6f4f1;
+    height: 200px;
+    width: auto;
+    border: 3px solid #f6f4f1;
+}
+
+.cell:nth-child(1),
+.cell:nth-child(2),
+.cell:nth-child(3) {
+    border-top: none;
+}
+
+.cell:nth-child(7),
+.cell:nth-child(8),
+.cell:nth-child(9) {
+    border-bottom: none;
+}
+
+.cell:nth-child(1),
+.cell:nth-child(4),
+.cell:nth-child(7) {
+    border-left: none;
+}
+
+.cell:nth-child(3),
+.cell:nth-child(6),
+.cell:nth-child(9) {
+    border-right: none;
+}
