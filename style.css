@@ -25,13 +25,31 @@ body {
 .players-container {
     display: flex;
     justify-content: center;
-    gap: 4rem;
+    gap: 1rem;
     margin-top: 5rem;
 }
 
 .player-container {
     cursor: default;
     text-align: center;
+}
+
+.player {
+    text-align: center;
+    vertical-align: middle;
+    background-color: transparent;
+    border: 3px solid transparent;
+    border-radius: 10px;
+    outline: none;
+    color: #f6f4f1;
+    font-family: "Permanent Marker", cursive;
+    font-size: 1.5rem;
+    box-shadow: none;
+}
+
+.player:hover,
+.player:focus {
+    border-color: #f6f4f1;
 }
 
 .gameboard-container {
@@ -92,4 +110,8 @@ body {
     font-family: "Permanent Marker", cursive;
     font-size: 2rem;
     padding: 10px 20px;
+}
+
+.restart-button:active {
+    scale: 0.95;
 }
