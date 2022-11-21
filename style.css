@@ -10,7 +10,10 @@
 }
 
 body {
-    background-color: #004225
+    min-height: 100vh;
+    background-color: #004225;
+    border: 25px solid #B76F20;
+    box-shadow: inset 0px 0px 5px 4px rgba(0, 0, 0, 0.6);
 }
 
 .title {
