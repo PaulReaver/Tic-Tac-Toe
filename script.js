@@ -1,32 +1,36 @@
 //Game board module
 const gameBoardModule = (function () {
-    let gameBoard = ["X", "O", "X", "O", "X", "O", "X", "O", "X"];
+    let gameBoard = ["", "", "", "", "", "", "", "", ""];
     return { gameBoard };
 })();
 
 //Display controller module
 const displayControllerModule = (function () {
-    let displayController = [];
+
+    //Create node list of cells
+    const cells = document.querySelectorAll(".cell");
+
+    //Set first turn to be X's
+    let xTurn = true;
+
+    //Place correct markers on board
+    for (let i = 0; i < gameBoardModule.gameBoard.length; i++) {
+        cells[i].addEventListener("click", () => {
+            if (xTurn) {
+                gameBoardModule.gameBoard[i] = "X";
+                cells[i].textContent = "X";
+            } else {
+                gameBoardModule.gameBoard[i] = "O";
+                cells[i].textContent = "O";
+            }
+            xTurn = !xTurn;
+        }, { once: true })
+    }
     return {};
 })();
 
 //Factory function to create players
-function playerFactory(name, sign) {
-    return { name, sign }
+function playerFactory(name) {
+    return { name }
 }
 
-//Module to display signs to screen
-const signsToScreen = (function () {
-    const cells = document.querySelectorAll(".cell");
-    for (let i = 0; i < 9; i++) {
-        cells[i].textContent = gameBoardModule.gameBoard[i];
-    }
-    return {};
-})
-
-//Created players
-const playerOne = playerFactory("Paul", "X");
-const playerTwo = playerFactory("Marilena", "O");
-
-//Populate screen with signs
-signsToScreen();
