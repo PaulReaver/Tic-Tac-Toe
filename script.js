@@ -22,10 +22,6 @@ const displayControllerModule = (function () {
     //Create node list of cells
     const cells = document.querySelectorAll(".cell");
 
-    //Get arrows
-    const rightArrow = document.querySelector("#right-arrow");
-    const leftArrow = document.querySelector("#left-arrow");
-
     //Get display message
     const message = document.querySelector(".message");
 
