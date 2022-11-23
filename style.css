@@ -28,6 +28,7 @@ body {
 .players-container {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 1rem;
     margin-top: 5rem;
 }
@@ -53,6 +54,10 @@ body {
 .player:hover,
 .player:focus {
     border-color: #f6f4f1;
+}
+
+.arrow {
+    font-size: 3.2rem;
 }
 
 .gameboard-container {
