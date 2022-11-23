@@ -12,7 +12,8 @@ const gameBoardModule = (function () {
     ];
     let gameBoard = ["", "", "", "", "", "", "", "", ""];
     let xTurn = true;
-    return { gameBoard, winConditions, xTurn };
+    let running = true;
+    return { gameBoard, winConditions, xTurn, running };
 })();
 
 //Display controller module
@@ -35,21 +36,22 @@ const displayControllerModule = (function () {
         cells[i].addEventListener("click", () => {
 
 
-            if (gameBoardModule.xTurn) {
+            if (gameBoardModule.xTurn && gameBoardModule.running) {
                 gameBoardModule.gameBoard[i] = "X";
                 cells[i].textContent = "X";
                 leftArrow.style.opacity = "1";
                 rightArrow.style.opacity = "0";
-            } else {
+            } else if (!gameBoardModule.xTurn && gameBoardModule.running) {
                 gameBoardModule.gameBoard[i] = "O";
                 cells[i].textContent = "O";
                 leftArrow.style.opacity = "0";
                 rightArrow.style.opacity = "1";
             }
 
-
             //Calls function to check if there is a winner
-            checkWinner();
+            if (gameBoardModule.running) {
+                checkWinner();
+            }
         }, { once: true })
     }
     return {};
@@ -77,9 +79,11 @@ function checkWinner() {
 
     if (roundWon) {
         console.log("round won");
+        gameBoardModule.running = false;
 
     } else if (!gameBoardModule.gameBoard.includes("")) {
         console.log("draw")
+        gameBoardModule.running = false;
 
     } else {
         gameBoardModule.xTurn = !gameBoardModule.xTurn;
