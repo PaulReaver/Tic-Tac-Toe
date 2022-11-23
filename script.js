@@ -70,7 +70,6 @@ function checkWinner(message) {
     }
 
     if (roundWon) {
-        console.log("round won");
         gameBoardModule.running = false;
 
         if (gameBoardModule.xTurn) {
