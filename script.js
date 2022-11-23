@@ -29,13 +29,9 @@ const displayControllerModule = (function () {
     //Set first turn to be X's and make inactive player's arrow invisible
     leftArrow.style.opacity = "0";
 
-
-
     //Place correct markers on board
     for (let i = 0; i < gameBoardModule.gameBoard.length; i++) {
         cells[i].addEventListener("click", () => {
-
-
             if (gameBoardModule.xTurn && gameBoardModule.running) {
                 gameBoardModule.gameBoard[i] = "X";
                 cells[i].textContent = "X";
@@ -50,7 +46,7 @@ const displayControllerModule = (function () {
 
             //Calls function to check if there is a winner
             if (gameBoardModule.running) {
-                checkWinner();
+                checkWinner(leftArrow, rightArrow);
             }
         }, { once: true })
     }
@@ -58,7 +54,7 @@ const displayControllerModule = (function () {
 })();
 
 //function that checks if there is a winner
-function checkWinner() {
+function checkWinner(leftArrow, rightArrow) {
     let roundWon = false;
 
     for (let i = 0; i < gameBoardModule.winConditions.length; i++) {
@@ -66,11 +62,9 @@ function checkWinner() {
         const cellA = gameBoardModule.gameBoard[condition[0]];
         const cellB = gameBoardModule.gameBoard[condition[1]];
         const cellC = gameBoardModule.gameBoard[condition[2]];
-
         if (cellA == "" || cellB == "" || cellC == "") {
             continue;
         }
-
         if (cellA == cellB && cellB == cellC) {
             roundWon = true;
             break;
@@ -80,11 +74,13 @@ function checkWinner() {
     if (roundWon) {
         console.log("round won");
         gameBoardModule.running = false;
-
+        leftArrow.style.opacity = "0";
+        rightArrow.style.opacity = "0";
     } else if (!gameBoardModule.gameBoard.includes("")) {
         console.log("draw")
         gameBoardModule.running = false;
-
+        leftArrow.style.opacity = "0";
+        rightArrow.style.opacity = "0";
     } else {
         gameBoardModule.xTurn = !gameBoardModule.xTurn;
     }
