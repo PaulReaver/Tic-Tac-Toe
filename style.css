@@ -56,10 +56,6 @@ body {
     border-color: #f6f4f1;
 }
 
-.arrow {
-    font-size: 3.2rem;
-}
-
 .gameboard-container {
     display: grid;
     grid-template-columns: repeat(3, 120px);
@@ -103,8 +99,12 @@ body {
     border-right: none;
 }
 
+.message {
+    text-align: center;
+    margin: 2rem 0rem;
+}
+
 .button-container {
-    margin-top: 5rem;
     display: flex;
     justify-content: center;
 }

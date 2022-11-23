@@ -26,8 +26,8 @@ const displayControllerModule = (function () {
     const rightArrow = document.querySelector("#right-arrow");
     const leftArrow = document.querySelector("#left-arrow");
 
-    //Set first turn to be X's and make inactive player's arrow invisible
-    leftArrow.style.opacity = "0";
+    //Get display message
+    const message = document.querySelector(".message");
 
     //Place correct markers on board
     for (let i = 0; i < gameBoardModule.gameBoard.length; i++) {
@@ -35,18 +35,16 @@ const displayControllerModule = (function () {
             if (gameBoardModule.xTurn && gameBoardModule.running) {
                 gameBoardModule.gameBoard[i] = "X";
                 cells[i].textContent = "X";
-                leftArrow.style.opacity = "1";
-                rightArrow.style.opacity = "0";
+                message.textContent = "it is O's turn"
             } else if (!gameBoardModule.xTurn && gameBoardModule.running) {
                 gameBoardModule.gameBoard[i] = "O";
                 cells[i].textContent = "O";
-                leftArrow.style.opacity = "0";
-                rightArrow.style.opacity = "1";
+                message.textContent = "it is X's turn"
             }
 
             //Calls function to check if there is a winner
             if (gameBoardModule.running) {
-                checkWinner(leftArrow, rightArrow, gameBoardModule.xTurn);
+                checkWinner(message);
             }
         }, { once: true })
     }
@@ -54,7 +52,7 @@ const displayControllerModule = (function () {
 })();
 
 //function that checks if there is a winner
-function checkWinner(leftArrow, rightArrow, currentTurn) {
+function checkWinner(message) {
     let roundWon = false;
 
     for (let i = 0; i < gameBoardModule.winConditions.length; i++) {
@@ -74,22 +72,18 @@ function checkWinner(leftArrow, rightArrow, currentTurn) {
     if (roundWon) {
         console.log("round won");
         gameBoardModule.running = false;
-        leftArrow.style.opacity = "0";
-        rightArrow.style.opacity = "0";
 
-        if (currentTurn) {
+        if (gameBoardModule.xTurn) {
             const playerOne = playerFactory(document.querySelector("#player-one").value);
-            console.log(playerOne.name);
+            message.textContent = `the winner is ${playerOne.name}!`
         } else {
             const playerTwo = playerFactory(document.querySelector("#player-two").value);
-            console.log(playerTwo.name);
+            message.textContent = `the winner is ${playerTwo.name}!`
         }
 
     } else if (!gameBoardModule.gameBoard.includes("")) {
-        console.log("draw")
+        message.textContent = `draw!`;
         gameBoardModule.running = false;
-        leftArrow.style.opacity = "0";
-        rightArrow.style.opacity = "0";
     } else {
         gameBoardModule.xTurn = !gameBoardModule.xTurn;
     }
