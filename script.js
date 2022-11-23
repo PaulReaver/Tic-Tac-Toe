@@ -35,11 +35,11 @@ const displayControllerModule = (function () {
             if (gameBoardModule.xTurn && gameBoardModule.running) {
                 gameBoardModule.gameBoard[i] = "X";
                 cells[i].textContent = "X";
-                message.textContent = "it is O's turn"
+                message.textContent = "player O's turn..."
             } else if (!gameBoardModule.xTurn && gameBoardModule.running) {
                 gameBoardModule.gameBoard[i] = "O";
                 cells[i].textContent = "O";
-                message.textContent = "it is X's turn"
+                message.textContent = "player X's turn..."
             }
 
             //Calls function to check if there is a winner
