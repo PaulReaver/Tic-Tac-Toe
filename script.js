@@ -46,7 +46,7 @@ const displayControllerModule = (function () {
 
             //Calls function to check if there is a winner
             if (gameBoardModule.running) {
-                checkWinner(leftArrow, rightArrow);
+                checkWinner(leftArrow, rightArrow, gameBoardModule.xTurn);
             }
         }, { once: true })
     }
@@ -54,7 +54,7 @@ const displayControllerModule = (function () {
 })();
 
 //function that checks if there is a winner
-function checkWinner(leftArrow, rightArrow) {
+function checkWinner(leftArrow, rightArrow, currentTurn) {
     let roundWon = false;
 
     for (let i = 0; i < gameBoardModule.winConditions.length; i++) {
@@ -76,6 +76,15 @@ function checkWinner(leftArrow, rightArrow) {
         gameBoardModule.running = false;
         leftArrow.style.opacity = "0";
         rightArrow.style.opacity = "0";
+
+        if (currentTurn) {
+            const playerOne = playerFactory(document.querySelector("#player-one").value);
+            console.log(playerOne.name);
+        } else {
+            const playerTwo = playerFactory(document.querySelector("#player-two").value);
+            console.log(playerTwo.name);
+        }
+
     } else if (!gameBoardModule.gameBoard.includes("")) {
         console.log("draw")
         gameBoardModule.running = false;
