@@ -108,7 +108,7 @@ body {
     cursor: pointer;
     border: 3px solid #f6f4f1;
     border-radius: 10px;
-    background-color: #004225;
+    background-color: transparent;
     color: #f6f4f1;
     font-family: "Permanent Marker", cursive;
     font-size: 2rem;
@@ -116,5 +116,5 @@ body {
 }
 
 .restart-button:active {
-    scale: 0.95;
+    opacity: 70%;
 }
