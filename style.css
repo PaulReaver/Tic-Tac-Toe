@@ -1,6 +1,6 @@
 :root {
     color: #f6f4f1;
-    font-family: "Permanent Marker", cursive;
+    font-family: 'Permanent Marker', cursive;
 }
 
 * {
@@ -12,7 +12,7 @@
 body {
     min-height: 100vh;
     background-color: #004225;
-    border: 25px solid #B76F20;
+    border: 25px solid #b76f20;
     box-shadow: inset 0px 0px 5px 4px rgba(0, 0, 0, 0.6);
 }
 
@@ -46,7 +46,7 @@ body {
     border-radius: 10px;
     outline: none;
     color: #f6f4f1;
-    font-family: "Permanent Marker", cursive;
+    font-family: 'Permanent Marker', cursive;
     font-size: 1.5rem;
     box-shadow: none;
 }
@@ -115,7 +115,7 @@ body {
     border-radius: 10px;
     background-color: transparent;
     color: #f6f4f1;
-    font-family: "Permanent Marker", cursive;
+    font-family: 'Permanent Marker', cursive;
     font-size: 2rem;
     padding: 10px 20px;
 }
