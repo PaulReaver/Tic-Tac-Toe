@@ -1,5 +1,5 @@
 # Tic-Tac-Toe
-A good old 2-player game of Tic-Tac-Toe.
+A good old 2-player game of Tic-Tac-Toe. This was created as part of The Odin Project curriculum
 
 ## Motivation
 This project was created to:
